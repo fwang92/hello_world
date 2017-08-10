@@ -16,7 +16,7 @@ pipeline {
         stage('Deploy') {
         	steps {
         		sh 'echo "deply stage"'
-        		sh 'make publish'
+        		sh 'make'
         	}
         }
     }
