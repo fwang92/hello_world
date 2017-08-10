@@ -10,13 +10,32 @@ pipeline {
         }
         stage('test') {
         	steps{
-        		sh 'make check'
+        		sh 'echo "test stage"'
         	}
         }
         stage('Deploy') {
         	steps {
+        		sh 'echo "deply stage"'
         		sh 'make publish'
         	}
+        }
+    }
+     post {
+        always {
+            echo 'Finished'
+            deleteDir() /* clean up our workspace */
+        }
+        success {
+            echo 'Success'
+        }
+        unstable {
+            echo 'Unstable'
+        }
+        failure {
+            echo 'Failed'
+        }
+        changed {
+            echo 'Changed'
         }
     }
 }
