@@ -9,10 +9,12 @@ pipeline {
             }
         }
         stage('test') {
+        	steps{
         		sh 'make check'
+        	}
         }
         stage('Deploy') {
-        	Steps {
+        	steps {
         		sh 'make publish'
         	}
         }
