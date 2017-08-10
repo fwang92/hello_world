@@ -5,6 +5,7 @@ pipeline {
             steps {
                 sh 'mvn --version'
                 sh 'javac HelloWorld.java'
+                sh 'java HelloWorld'
             }
         }
     }
