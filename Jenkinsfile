@@ -8,5 +8,13 @@ pipeline {
                 sh 'java HelloWorld'
             }
         }
+        stage('test') {
+        		sh 'make check'
+        }
+        stage('Deploy') {
+        	Steps {
+        		sh 'make publish'
+        	}
+        }
     }
 }
